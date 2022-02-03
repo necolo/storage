@@ -2,6 +2,10 @@
 
 A very simple JavaScript localStorage api for TS.
 
+```
+npm i @necolo/storage
+```
+
 ## Usage
 
 ```typescript
