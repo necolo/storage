@@ -1,0 +1,31 @@
+{
+  "name": "@necolo/storage",
+  "version": "1.0.0",
+  "description": "A minimal local storage api that friendly for TS",
+  "main": "lib/index.js",
+  "repository": "https://github.com/Necolo/storage.git",
+  "author": "necolo <negko311@gmail.com>",
+  "scripts": {
+    "build": "tsc"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "keywords": [
+    "localstorage",
+    "javascript",
+    "typescript"
+  ],
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "typescript": "^4.5.5"
+  }
+}
