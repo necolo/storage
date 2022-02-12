@@ -1,11 +1,12 @@
 export default class Storage<T extends {[key: string]: any}> {
   constructor(
     private initValue: T,
+    private storage = localStorage,
   ) {}
 
   public get<K extends keyof T>(key: K): T[K] {
     const defaultResult = this.initValue[key];
-    const v = localStorage.getItem(key as string);
+    const v = this.storage.getItem(key as string);
     if (!v) {
       return defaultResult;
     }
@@ -28,7 +29,7 @@ export default class Storage<T extends {[key: string]: any}> {
     }
   }
 
-  public put<K extends keyof T>(key: K, value: T[K]) {
+  public set<K extends keyof T>(key: K, value: T[K]) {
     let v = '';
 
     switch (typeof this.initValue[key]) {
@@ -40,13 +41,17 @@ export default class Storage<T extends {[key: string]: any}> {
         break;
     }
   
-    localStorage.setItem(key as string, v);
+    this.storage.setItem(key as string, v);
+  }
+
+  public del(key: keyof T) {
+    this.storage.removeItem(key as string);
   }
 
   /**
    * Clear all localStorage values
    */
   public clear() {
-    localStorage.clear();
+    this.storage.clear();
   }
 }
